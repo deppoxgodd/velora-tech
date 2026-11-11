@@ -86,6 +86,4 @@
       document.querySelectorAll('[data-color-option]').forEach(button=>button.addEventListener('click',()=>{document.querySelectorAll('[data-color-option]').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));document.getElementById('color-label').textContent='Цвет: '+colorName(button.dataset.colorOption);document.querySelector('.detail-add').dataset.color=button.dataset.colorOption;document.getElementById('detail-image').src=button.dataset.colorOption==='graphite'?'assets/phone-graphite.svg':'assets/phone.svg';}));
     }
   }
-  const sceneImage=document.getElementById('space-image');
-  if(sceneImage&&'IntersectionObserver' in window){const alts={home:'Гостиная с техникой VELORA',computing:'Ноутбук, монитор и наушники VELORA',appliances:'Бытовая техника VELORA'};const observer=new IntersectionObserver(entries=>{for(const entry of entries)if(entry.isIntersecting){const key=entry.target.dataset.scene;sceneImage.src=`assets/${key}.png`;sceneImage.alt=alts[key];}},{rootMargin:'-20% 0px -35% 0px',threshold:.15});document.querySelectorAll('[data-scene]').forEach(node=>observer.observe(node));}
 })();
