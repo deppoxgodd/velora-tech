@@ -33,7 +33,7 @@
   const notify = message => { const node=document.querySelector('.toast'); node.textContent=message; clearTimeout(toastTimer); toastTimer=setTimeout(()=>node.textContent='',3500); };
   const saveCart = () => { try { localStorage.setItem('velora-cart',JSON.stringify(cart)); } catch { notify('Корзина работает до закрытия страницы: сохранение недоступно.'); } document.querySelector('.cart-count').textContent=cart.reduce((sum,row)=>sum+row.qty,0); };
   const colorName = color => color==='sage'?'Шалфей':color==='graphite'?'Графит':'Стандартный';
-  document.querySelector('[data-cart]').innerHTML='<dialog id="cart-dialog" aria-labelledby="cart-heading"><div class="cart-inner"><div class="cart-title"><h2 id="cart-heading">Ваша корзина</h2><button class="close-dialog" aria-label="Закрыть корзину">×</button></div><div id="cart-items"></div></div></dialog>';
+  document.querySelector('[data-cart]').innerHTML='<dialog id="cart-dialog" aria-labelledby="cart-heading"><div class="cart-inner"><div class="cart-title"><h2 id="cart-heading">Ваша корзина</h2><button class="close-dialog" aria-label="Закрыть корзину"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M5 5l14 14M19 5 5 19"/></svg></button></div><div id="cart-items"></div></div></dialog>';
   const dialog=document.getElementById('cart-dialog');
   function renderCart(){
     const target=document.getElementById('cart-items');
